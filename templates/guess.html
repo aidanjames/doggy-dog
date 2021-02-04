@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+{% block title %}Doggydog{% endblock %}
+{% block content %}
+<div class="container">
+  <h3>
+    You guessed: {{ guessed }}
+    {% if guessed == current_dog.breed %}
+      ✅
+    {% else %}
+      ❌
+    {% endif %}
+  </h3>
+  <div class="card mx-auto">
+    <img class="card-img-top" src="{{ current_dog.img }}" alt="Card image cap">
+    <div class="card-body">
+      <h5 class="card-title">{{ current_dog.breed }}</h5>
+      <ul class="list-group listy">
+        <li class="list-group-item d-flex justify-content-between align-items-center">
+          Weight (kg)
+          <span class="">
+            {{ current_dog.weight }}
+          </span>
+        </li>
+        <li class="list-group-item d-flex justify-content-between align-items-center">
+          Lifespan
+          <span class="">
+            {{ current_dog.life_span }}
+          </span>
+        </li>
+        <li class="list-group-item d-flex justify-content-between align-items-center">
+          Temperament
+          <span class="">
+            {{ current_dog.temperament }}
+          </span>
+        </li>
+      </ul>
+      <a href="{{ url_for('home') }}" class="btn btn-primary">NEXT DOGGY DOG</a>
+    </div>
+  </div>
+</div>
+{% endblock %}

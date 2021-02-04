@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block title %}Doggydog{% endblock %}
+
+{% block content %}
+
+<div class="container">
+
+  <div class="card mx-auto">
+    <img class="card-img-top" src="{{ dog.img }}" alt="Card image cap">
+    <div class="card-body">
+
+      {% for breed in breed_selections %}
+        <a href="{{ url_for('guess', guess=breed) }}" class="btn btn-primary">{{ breed }}</a>
+      {% endfor %}
+
+    </div>
+  </div>
+</div>
+{% endblock %}
